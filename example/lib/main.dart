@@ -1,4 +1,4 @@
-import 'package:example/base_list.dart';
+import 'package:example/components_example_page.dart';
 import 'package:flutter/material.dart';
 import 'package:novodom_ds/index.dart';
 
@@ -22,7 +22,7 @@ class RedecorDemoDs extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: const BaseListScreen(),
+            home: const ComponentsExamplePage(),
           );
     });
   }
