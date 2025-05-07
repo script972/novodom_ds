@@ -26,8 +26,8 @@ abstract class NovodomCoreTheme implements NovodomTheme {
 
   @override
   RedecorAssetsTheme get assetsTheme => RedecorAssetsTheme(
-        add: 'assets/icons/add.svg',
-        tickCircle: 'assets/icons/tick-circle.svg',
+        add: 'icons/add.svg',
+        tickCircle: 'icons/tick-circle.svg',
       );
 
   @override
@@ -38,6 +38,13 @@ abstract class NovodomCoreTheme implements NovodomTheme {
             FontVariation('wght', 500),
           ],
           height: 20 / 14,
+        ),
+        p2Medium: const TextStyle(
+          fontSize: 12,
+          fontVariations: [
+            FontVariation('wght', 500),
+          ],
+          height: 18 / 13,
         ),
         linkS: const TextStyle(
           fontSize: 12,

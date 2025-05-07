@@ -26,19 +26,34 @@ class NovodomCoreThemeLight extends NovodomCoreTheme {
         shadowColor: Colors.black,
         color: DefaultPalette.kAppBarColor,
       ),
-      inputDecorationTheme: const InputDecorationTheme(
-        // TODO(vh): add new input styles
+      textSelectionTheme: TextSelectionThemeData(
+        cursorColor: DefaultPalette.orchidColor,
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.black20Color),
+          borderRadius: BorderRadius.circular(22),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: DefaultPalette.black20Color),
+          borderRadius: BorderRadius.circular(22),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(22),
+        ),
         errorBorder: OutlineInputBorder(
-            // borderSide: BorderSide(color: DefaultPalette.deepPurpleAccent),
-            ),
+          borderSide: BorderSide(color: DefaultPalette.tomatoColor),
+          borderRadius: BorderRadius.circular(22),
+        ),
         focusedErrorBorder: OutlineInputBorder(
-            // borderSide:
-            //     BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-            ),
+          borderSide: BorderSide(color: DefaultPalette.tomatoColor),
+          borderRadius: BorderRadius.circular(22),
+        ),
         focusedBorder: OutlineInputBorder(
-            // borderSide:
-            //     BorderSide(color: DefaultPalette.deepPurpleAccent, width: 2.0),
-            ),
+          borderSide: BorderSide(color: DefaultPalette.black60Color),
+          borderRadius: BorderRadius.circular(22),
+        ),
       ),
     );
   }

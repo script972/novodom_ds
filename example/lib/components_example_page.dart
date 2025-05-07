@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:novodom_ds/component/custom_button.dart';
 import 'package:novodom_ds/component/custom_checkbox.dart';
 import 'package:novodom_ds/component/custom_radio_button.dart';
+import 'package:novodom_ds/component/custom_text_form_field.dart';
 
 class ComponentsExamplePage extends StatefulWidget {
   const ComponentsExamplePage({super.key});
@@ -22,18 +23,21 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 20,
             children: [
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '------------------------ Checkbox ------------------------',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              const Text(
+                '------------------------ Text Field Themed ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              const CustomTextFormField(),
+              const Text(
+                '------------------------ Checkbox ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -54,46 +58,44 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                 ],
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '------------------------ RadioButton ------------------------',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              const Text(
+                '------------------------ RadioButton ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 20,
                 children: [
                   CustomRadioButton(
-                    value: _radioValue,
+                    selected: _radioValue == true,
                     onTap: (value) {
                       setState(() {
-                        _radioValue = value;
+                        _radioValue = true;
                       });
                     },
                   ),
                   CustomRadioButton(
-                    value: false,
+                    selected: _radioValue == false,
+                    onTap: (value) {
+                      setState(() {
+                        _radioValue = false;
+                      });
+                    },
+                  ),
+                  CustomRadioButton(
+                    selected: false,
                     disabled: true,
                     onTap: (_) {},
                   ),
                 ],
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '------------------------ Size S ------------------------',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              const Text(
+                '------------------------ Size S ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
@@ -251,16 +253,11 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                 ],
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '------------------------ Size M ------------------------',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              const Text(
+                '------------------------ Size M ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
