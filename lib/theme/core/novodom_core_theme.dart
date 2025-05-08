@@ -26,8 +26,8 @@ abstract class NovodomCoreTheme implements NovodomTheme {
 
   @override
   RedecorAssetsTheme get assetsTheme => RedecorAssetsTheme(
-        add: 'icons/add.svg',
-        tickCircle: 'icons/tick-circle.svg',
+        add: 'packages/novodom_ds/assets/icons/add.svg',
+        tickCircle: 'packages/novodom_ds/assets/icons/tick-circle.svg',
       );
 
   @override

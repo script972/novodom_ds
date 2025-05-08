@@ -23,7 +23,9 @@ class CustomButton extends StatefulWidget {
     this.fullWidth = false,
     this.disabled = false,
     this.loading = false,
+    this.changeIconOrder = false,
     this.icon,
+    this.duotoneIcon,
     super.key,
   });
 
@@ -31,9 +33,11 @@ class CustomButton extends StatefulWidget {
   final ButtonSize size;
   final String? text;
   final String? icon;
+  final String? duotoneIcon;
   final bool fullWidth;
   final bool disabled;
   final bool loading;
+  final bool changeIconOrder;
   final Future Function() onTap;
 
   @override
@@ -193,6 +197,42 @@ class _CustomButtonState extends State<CustomButton> {
     }
   }
 
+  Color? _duotoneBlackColor() {
+    if (_loading) {
+      return Colors.transparent;
+    }
+    switch (widget.type) {
+      case ButtonType.primary || ButtonType.tertiaryWhite:
+        return NovodomTheme(context).colorTheme.whiteColor;
+      case ButtonType.secondary:
+        if (_hovered) {
+          return NovodomTheme(context).colorTheme.whiteColor;
+        } else {
+          return null;
+        }
+      default:
+        return null;
+    }
+  }
+
+  Color? _duotoneBlueColor() {
+    if (_loading) {
+      return Colors.transparent;
+    }
+    switch (widget.type) {
+      case ButtonType.primary || ButtonType.tertiaryWhite:
+        return NovodomTheme(context).colorTheme.white50Color;
+      case ButtonType.secondary:
+        if (_hovered) {
+          return NovodomTheme(context).colorTheme.white50Color;
+        } else {
+          return null;
+        }
+      default:
+        return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (widget.text == null && widget.icon == null) return const SizedBox();
@@ -240,6 +280,16 @@ class _CustomButtonState extends State<CustomButton> {
                       widget.icon!,
                       height: 24,
                       colorFilter: _colorFilter(),
+                    ),
+                  )
+                else if (widget.duotoneIcon != null)
+                  Opacity(
+                    opacity: widget.disabled ? 0.5 : 1,
+                    child: DuotoneIcon(
+                      duotoneIcon: widget.duotoneIcon!,
+                      changeOrder: widget.changeIconOrder,
+                      iconBlackColor: _duotoneBlackColor(),
+                      iconBlueColor: _duotoneBlueColor(),
                     ),
                   ),
                 if (widget.text != null)

@@ -3,6 +3,7 @@ import 'package:novodom_ds/component/custom_button.dart';
 import 'package:novodom_ds/component/custom_checkbox.dart';
 import 'package:novodom_ds/component/custom_radio_button.dart';
 import 'package:novodom_ds/component/custom_text_form_field.dart';
+import 'package:novodom_ds/component/step_tab.dart';
 
 class ComponentsExamplePage extends StatefulWidget {
   const ComponentsExamplePage({super.key});
@@ -27,12 +28,51 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
             spacing: 20,
             children: [
               const Text(
+                '------------------------ Steps Tab ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              StepTab(
+                text: 'Tab',
+                duotoneIcon: 'icons/plus-circle',
+                type: StepTabType.passed,
+                onTap: () {},
+              ),
+              StepTab(
+                text: 'Tab',
+                duotoneIcon: 'icons/plus-circle',
+                type: StepTabType.active,
+                onTap: () {},
+              ),
+              StepTab(
+                text: 'Tab',
+                duotoneIcon: 'icons/plus-circle',
+                type: StepTabType.disabled,
+                onTap: () {},
+              ),
+              StepTab(
+                text: 'Tab',
+                duotoneIcon: 'icons/plus-circle',
+                onTap: () {},
+              ),
+              StepTab(
+                text: 'Tab',
+                duotoneIcon: 'icons/plus-circle',
+                type: StepTabType.updates,
+                onTap: () {},
+              ),
+              const Text(
                 '------------------------ Text Field Themed ------------------------',
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
-              const CustomTextFormField(),
+              const CustomTextFormField(
+                label: 'Label',
+                hint: 'Hint',
+                helper: 'Helper',
+              ),
               const Text(
                 '------------------------ Checkbox ------------------------',
                 style: TextStyle(
@@ -177,7 +217,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     text: 'Sign In',
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
                     ),
@@ -185,7 +225,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     disabled: true,
                     text: 'Sign In',
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     onTap: () async {},
                   ),
                 ],
@@ -196,7 +236,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.secondary,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
@@ -204,7 +244,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.secondary,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     disabled: true,
                     text: 'Sign In',
                     onTap: () async {},
@@ -217,7 +257,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
@@ -225,7 +265,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     disabled: true,
                     text: 'Sign In',
                     onTap: () async {},
@@ -238,7 +278,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
@@ -247,7 +287,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
                     disabled: true,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     onTap: () async {},
                   ),
@@ -348,7 +388,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     text: 'Sign In',
                     size: ButtonSize.m,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
                     ),
@@ -357,7 +397,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                     disabled: true,
                     text: 'Sign In',
                     size: ButtonSize.m,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     onTap: () async {},
                   ),
                 ],
@@ -368,7 +408,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.secondary,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async => Future.delayed(
@@ -377,7 +417,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.secondary,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     disabled: true,
                     text: 'Sign In',
                     size: ButtonSize.m,
@@ -391,7 +431,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async => Future.delayed(
@@ -400,7 +440,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     disabled: true,
                     text: 'Sign In',
                     size: ButtonSize.m,
@@ -414,7 +454,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async => Future.delayed(
@@ -424,7 +464,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
                     disabled: true,
-                    icon: 'example/assets/icons/Plus-Circle.svg',
+                    duotoneIcon: 'icons/plus-circle',
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async {},
