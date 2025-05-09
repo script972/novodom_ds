@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novodom_ds/component/custom_button.dart';
-import 'package:novodom_ds/component/custom_checkbox.dart';
-import 'package:novodom_ds/component/custom_radio_button.dart';
-import 'package:novodom_ds/component/custom_text_form_field.dart';
-import 'package:novodom_ds/component/step_tab.dart';
+import 'package:novodom_ds/index.dart';
 
 class ComponentsExamplePage extends StatefulWidget {
   const ComponentsExamplePage({super.key});
@@ -15,11 +11,13 @@ class ComponentsExamplePage extends StatefulWidget {
 class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
   bool _checkboxValue = false;
   bool _radioValue = false;
+  bool _changeTabState = false;
+  bool _radioTabSelected = false;
+  int _sidebarTabSelectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
@@ -28,42 +26,116 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
             spacing: 20,
             children: [
               const Text(
-                '------------------------ Steps Tab ------------------------',
+                '------------------------ Logo ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              const Logo(),
+              const Text(
+                '------------------------ SidebarTab ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              SidebarTab(
+                text: 'Built-in',
+                active: _sidebarTabSelectedIndex == 0,
+                onTap: () {
+                  setState(() {
+                    _sidebarTabSelectedIndex = 0;
+                  });
+                },
+                duotoneIcon: 'icons/bed',
+              ),
+              SidebarTab(
+                text: 'Built-in',
+                active: _sidebarTabSelectedIndex == 1,
+                onTap: () {
+                  setState(() {
+                    _sidebarTabSelectedIndex = 1;
+                  });
+                },
+                duotoneIcon: 'icons/bed',
+              ),
+              SidebarTab(
+                text: 'Built-in',
+                disabled: true,
+                active: _sidebarTabSelectedIndex == 0,
+                onTap: () {
+                  setState(() {
+                    _sidebarTabSelectedIndex = 0;
+                  });
+                },
+                duotoneIcon: 'icons/bed',
+              ),
+              const Text(
+                '------------------------ RadioButtonTab ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              RadioButtonTab(
+                text: 'Built-in',
+                selected: _radioTabSelected,
+                onTap: (v) {
+                  setState(() {
+                    _radioTabSelected = v;
+                  });
+                },
+              ),
+              RadioButtonTab(
+                text: 'Built-in',
+                disabled: true,
+                selected: false,
+                onTap: (v) {
+                  setState(() {
+                    _radioTabSelected = v;
+                  });
+                },
+              ),
+              const Text(
+                '------------------------ StepTab ------------------------',
                 style: TextStyle(
                   color: Colors.white,
                 ),
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/plus-circle',
-                type: StepTabType.passed,
+                duotoneIcon: 'icons/bed',
+                type: StepTabState.passed,
                 onTap: () {},
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/plus-circle',
-                type: StepTabType.active,
+                duotoneIcon: 'icons/bed',
+                type:
+                    _changeTabState ? StepTabState.passed : StepTabState.active,
+                onTap: () {
+                  setState(() {
+                    _changeTabState = !_changeTabState;
+                  });
+                },
+              ),
+              StepTab(
+                text: 'Tab',
+                duotoneIcon: 'icons/bed',
+                type: StepTabState.disabled,
                 onTap: () {},
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/plus-circle',
-                type: StepTabType.disabled,
+                duotoneIcon: 'icons/bed',
                 onTap: () {},
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/plus-circle',
-                onTap: () {},
-              ),
-              StepTab(
-                text: 'Tab',
-                duotoneIcon: 'icons/plus-circle',
-                type: StepTabType.updates,
+                duotoneIcon: 'icons/bed',
+                type: StepTabState.updates,
                 onTap: () {},
               ),
               const Text(
-                '------------------------ Text Field Themed ------------------------',
+                '------------------------ CustomTextFormField ------------------------',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -74,7 +146,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 helper: 'Helper',
               ),
               const Text(
-                '------------------------ Checkbox ------------------------',
+                '------------------------ CustomCheckbox ------------------------',
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -99,7 +171,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 ],
               ),
               const Text(
-                '------------------------ RadioButton ------------------------',
+                '------------------------ CustomRadioButton ------------------------',
                 style: TextStyle(
                   color: Colors.white,
                 ),

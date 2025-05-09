@@ -31,3 +31,6 @@ flutter:
     - family: WixMadeforText
       fonts:
         - asset: assets/fonts/WixMadeforText-VariableFont_wght.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat-VariableFont_wght.ttf

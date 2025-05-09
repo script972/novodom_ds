@@ -1,6 +1,41 @@
 import 'package:flutter/material.dart';
 
 class RedecorColorTheme {
+  Color blackColor;
+  Color black5Color;
+  Color black10Color;
+  Color black20Color;
+  Color black40Color;
+  Color black50Color;
+  Color black60Color;
+  Color black70Color;
+  Color whiteColor;
+  Color white10Color;
+  Color white15Color;
+  Color white20Color;
+  Color white35Color;
+  Color white50Color;
+  Color tomatoColor;
+  Color tomato50Color;
+  Color orchidColor;
+  Color violetColor;
+  Color smokeColor;
+  Color tabTextDefault;
+  Color tabTextDisabled;
+  Color tabTextHover;
+  Color tabTextActive;
+  Color tabBgHover;
+  Color tabBgActive;
+  Color tabIconBlackActive;
+  Color tabIconBlueActive;
+  Color tabIconBlackHovered;
+  Color tabIconBlueHovered;
+  Color tabIconBlackDefault;
+  Color tabIconBlueDefault;
+  Color tabIconBlackDisabled;
+  Color tabIconBlueDisabled;
+  Color logo;
+
   RedecorColorTheme({
     required this.blackColor,
     required this.black5Color,
@@ -21,25 +56,20 @@ class RedecorColorTheme {
     required this.orchidColor,
     required this.violetColor,
     required this.smokeColor,
+    required this.tabTextDefault,
+    required this.tabTextDisabled,
+    required this.tabTextHover,
+    required this.tabTextActive,
+    required this.tabBgHover,
+    required this.tabBgActive,
+    required this.tabIconBlackActive,
+    required this.tabIconBlueActive,
+    required this.tabIconBlackHovered,
+    required this.tabIconBlueHovered,
+    required this.tabIconBlackDefault,
+    required this.tabIconBlueDefault,
+    required this.tabIconBlackDisabled,
+    required this.tabIconBlueDisabled,
+    required this.logo,
   });
-
-  Color blackColor;
-  Color black5Color;
-  Color black10Color;
-  Color black20Color;
-  Color black40Color;
-  Color black50Color;
-  Color black60Color;
-  Color black70Color;
-  Color whiteColor;
-  Color white10Color;
-  Color white15Color;
-  Color white20Color;
-  Color white35Color;
-  Color white50Color;
-  Color tomatoColor;
-  Color tomato50Color;
-  Color orchidColor;
-  Color violetColor;
-  Color smokeColor;
 }

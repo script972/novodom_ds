@@ -4,3 +4,6 @@ export 'custom_radio_button.dart';
 export 'custom_text_form_field.dart';
 export 'step_tab.dart';
 export 'duotone_icon.dart';
+export 'radio_button_tab.dart';
+export 'sidebar_tab.dart';
+export 'logo.dart';

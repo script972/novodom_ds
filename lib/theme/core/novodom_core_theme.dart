@@ -28,6 +28,9 @@ abstract class NovodomCoreTheme implements NovodomTheme {
   RedecorAssetsTheme get assetsTheme => RedecorAssetsTheme(
         add: 'packages/novodom_ds/assets/icons/add.svg',
         tickCircle: 'packages/novodom_ds/assets/icons/tick-circle.svg',
+        passed: 'packages/novodom_ds/assets/icons/Passed.svg',
+        updated: 'packages/novodom_ds/assets/icons/Passed2.svg',
+        logo: 'packages/novodom_ds/assets/icons/logo.svg',
       );
 
   @override
@@ -52,6 +55,65 @@ abstract class NovodomCoreTheme implements NovodomTheme {
             FontVariation('wght', 500),
           ],
           height: 12 / 12,
+        ),
+        p1Semibold: const TextStyle(
+          fontSize: 14,
+          fontVariations: [
+            FontVariation('wght', 600),
+          ],
+          height: 20 / 14,
+        ),
+        p2Semibold: const TextStyle(
+          fontSize: 12,
+          fontVariations: [
+            FontVariation('wght', 600),
+          ],
+          height: 18 / 12,
+        ),
+        p2Bold: const TextStyle(
+          fontSize: 12,
+          fontVariations: [
+            FontVariation('wght', 700),
+          ],
+          height: 18 / 12,
+        ),
+        linkM: const TextStyle(
+          fontSize: 14,
+          fontVariations: [
+            FontVariation('wght', 600),
+          ],
+          height: 14 / 14,
+        ),
+        p2: const TextStyle(
+          fontSize: 16,
+          fontVariations: [
+            FontVariation('wght', 400),
+          ],
+          height: 24 / 16,
+        ),
+        h1: const TextStyle(
+          fontSize: 24,
+          fontFamily: 'Montserrat',
+          fontVariations: [
+            FontVariation('wght', 700),
+          ],
+          height: 28 / 24,
+        ),
+        h2: const TextStyle(
+          fontSize: 18,
+          fontFamily: 'Montserrat',
+          fontVariations: [
+            FontVariation('wght', 700),
+          ],
+          height: 24 / 18,
+        ),
+        h3: const TextStyle(
+          fontSize: 16,
+          fontFamily: 'Montserrat',
+          fontVariations: [
+            FontVariation('wght', 700),
+          ],
+          height: 20 / 16,
         ),
       );
 
