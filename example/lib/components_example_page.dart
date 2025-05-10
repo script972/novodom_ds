@@ -13,6 +13,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
   bool _radioValue = false;
   bool _changeTabState = false;
   bool _radioTabSelected = false;
+  bool _squareThemedButtonActive = false;
   int _sidebarTabSelectedIndex = -1;
 
   @override
@@ -25,6 +26,28 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 20,
             children: [
+              const Text(
+                '------------------------ CustomSidebar ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              // CustomSidebar(),
+              const Text(
+                '------------------------ SquareThemedButton ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              SquareThemedButton(
+                  active: _squareThemedButtonActive,
+                  showIndicator: true,
+                  duotoneIcon: 'icons/bed',
+                  onTap: () {
+                    setState(() {
+                      _squareThemedButtonActive = !_squareThemedButtonActive;
+                    });
+                  }),
               const Text(
                 '------------------------ Logo ------------------------',
                 style: TextStyle(
