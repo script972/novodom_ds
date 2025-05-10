@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:novodom_ds/core/theme/redecor_assets_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_button_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_color_theme.dart';
+import 'package:novodom_ds/core/theme/redecor_data_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_shadow_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_size_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_text_theme.dart';
@@ -43,4 +44,7 @@ abstract class NovodomTheme {
   RedecorShadowTheme get shadowTheme;
 
   RedecorButtonTheme get buttonTheme;
+
+  RedecorDataTheme get dataTheme;
+
 }

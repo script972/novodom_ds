@@ -1,9 +1,15 @@
 class RedecorAssetsTheme {
   RedecorAssetsTheme({
-    required this.logoImage,
-    required this.envelopeImage,
+    required this.tickCircle,
+    required this.add,
+    required this.passed,
+    required this.updated,
+    required this.logo,
   });
 
-  String logoImage;
-  String envelopeImage;
+  String tickCircle;
+  String add;
+  String passed;
+  String updated;
+  String logo;
 }
