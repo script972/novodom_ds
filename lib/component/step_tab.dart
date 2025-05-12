@@ -122,8 +122,9 @@ class StepTab extends StatelessWidget {
                   : 0,
               child: SvgPicture.asset(
                 type == StepTabState.updates
-                    ? NovodomTheme(context).assetsTheme.updated
-                    : NovodomTheme(context).assetsTheme.passed,
+                    ? NovodomTheme(context).assetsTheme.updates
+                    : NovodomTheme(context).assetsTheme.icons16.passed,
+                height: 14,
               ),
             ),
           ),

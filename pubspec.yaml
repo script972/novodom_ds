@@ -27,6 +27,65 @@ flutter:
   assets:
     - assets/fonts/
     - assets/icons/
+    - assets/icons/icons24/
+    - assets/icons/icons16/
+    - assets/icons/duotoneIcons/accent/
+    - assets/icons/duotoneIcons/accent-wall/
+    - assets/icons/duotoneIcons/accessibility/
+    - assets/icons/duotoneIcons/arrow-down-circle/
+    - assets/icons/duotoneIcons/arrow-left-circle/
+    - assets/icons/duotoneIcons/arrow-right-circle/
+    - assets/icons/duotoneIcons/arrow-up-circle/
+    - assets/icons/duotoneIcons/back-square/
+    - assets/icons/duotoneIcons/bar-chair/
+    - assets/icons/duotoneIcons/bath/
+    - assets/icons/duotoneIcons/bed/
+    - assets/icons/duotoneIcons/bell/
+    - assets/icons/duotoneIcons/brush/
+    - assets/icons/duotoneIcons/calendar/
+    - assets/icons/duotoneIcons/card/
+    - assets/icons/duotoneIcons/carousel/
+    - assets/icons/duotoneIcons/chair1/
+    - assets/icons/duotoneIcons/chat/
+    - assets/icons/duotoneIcons/check-circle/
+    - assets/icons/duotoneIcons/clipboard/
+    - assets/icons/duotoneIcons/close-circle/
+    - assets/icons/duotoneIcons/closet/
+    - assets/icons/duotoneIcons/closet2/
+    - assets/icons/duotoneIcons/comment/
+    - assets/icons/duotoneIcons/dark-light/
+    - assets/icons/duotoneIcons/delete/
+    - assets/icons/duotoneIcons/document/
+    - assets/icons/duotoneIcons/edit/
+    - assets/icons/duotoneIcons/element-plus/
+    - assets/icons/duotoneIcons/export/
+    - assets/icons/duotoneIcons/eye-open/
+    - assets/icons/duotoneIcons/fail/
+    - assets/icons/duotoneIcons/fridge/
+    - assets/icons/duotoneIcons/import/
+    - assets/icons/duotoneIcons/layers/
+    - assets/icons/duotoneIcons/legal/
+    - assets/icons/duotoneIcons/log-in/
+    - assets/icons/duotoneIcons/log-out/
+    - assets/icons/duotoneIcons/money-send/
+    - assets/icons/duotoneIcons/more/
+    - assets/icons/duotoneIcons/notebook-square/
+    - assets/icons/duotoneIcons/pallete/
+    - assets/icons/duotoneIcons/pdf/
+    - assets/icons/duotoneIcons/pen-tool/
+    - assets/icons/duotoneIcons/plan/
+    - assets/icons/duotoneIcons/play/
+    - assets/icons/duotoneIcons/plus-circle/
+    - assets/icons/duotoneIcons/question/
+    - assets/icons/duotoneIcons/refresh/
+    - assets/icons/duotoneIcons/ruler/
+    - assets/icons/duotoneIcons/rvt/
+    - assets/icons/duotoneIcons/send/
+    - assets/icons/duotoneIcons/signature/
+    - assets/icons/duotoneIcons/success/
+    - assets/icons/duotoneIcons/user-circle/
+    - assets/icons/duotoneIcons/user-hand-up/
+    - assets/icons/duotoneIcons/walls/
 
   fonts:
     - family: WixMadeforText

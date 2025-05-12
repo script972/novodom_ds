@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:novodom_ds/default/default_palette.dart';
 import 'package:novodom_ds/index.dart';
 
 class ComponentsExamplePage extends StatefulWidget {
@@ -19,554 +20,565 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 20,
-            children: [
-              const Text(
-                '------------------------ CustomSidebar ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+      body: SidebarLayout(
+        child: Container(
+          decoration:  BoxDecoration(
+            color: DefaultPalette.smokeColor,
+            borderRadius: const BorderRadiusDirectional.only(
+              topStart: Radius.circular(32),
+              bottomStart: Radius.circular(32),
+            ),
+          ),
+          padding: const EdgeInsets.all(40.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              spacing: 20,
+              children: [
+                const Text(
+                  '------------------------ CustomSidebar ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              // CustomSidebar(),
-              const Text(
-                '------------------------ SquareThemedButton ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                // CustomSidebar(),
+                const Text(
+                  '------------------------ SquareThemedButton ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              SquareThemedButton(
-                  active: _squareThemedButtonActive,
-                  showIndicator: true,
-                  duotoneIcon: 'icons/bed',
+                SquareThemedButton(
+                    active: _squareThemedButtonActive,
+                    showIndicator: true,
+                    duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                    onTap: () {
+                      setState(() {
+                        _squareThemedButtonActive =
+                            !_squareThemedButtonActive;
+                      });
+                    }),
+                const Text(
+                  '------------------------ Logo ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                const Logo(),
+                const Text(
+                  '------------------------ SidebarTab ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                SidebarTab(
+                  text: 'Built-in',
+                  active: _sidebarTabSelectedIndex == 0,
                   onTap: () {
                     setState(() {
-                      _squareThemedButtonActive = !_squareThemedButtonActive;
+                      _sidebarTabSelectedIndex = 0;
                     });
-                  }),
-              const Text(
-                '------------------------ Logo ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                  },
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 ),
-              ),
-              const Logo(),
-              const Text(
-                '------------------------ SidebarTab ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                SidebarTab(
+                  text: 'Built-in',
+                  active: _sidebarTabSelectedIndex == 1,
+                  onTap: () {
+                    setState(() {
+                      _sidebarTabSelectedIndex = 1;
+                    });
+                  },
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 ),
-              ),
-              SidebarTab(
-                text: 'Built-in',
-                active: _sidebarTabSelectedIndex == 0,
-                onTap: () {
-                  setState(() {
-                    _sidebarTabSelectedIndex = 0;
-                  });
-                },
-                duotoneIcon: 'icons/bed',
-              ),
-              SidebarTab(
-                text: 'Built-in',
-                active: _sidebarTabSelectedIndex == 1,
-                onTap: () {
-                  setState(() {
-                    _sidebarTabSelectedIndex = 1;
-                  });
-                },
-                duotoneIcon: 'icons/bed',
-              ),
-              SidebarTab(
-                text: 'Built-in',
-                disabled: true,
-                active: _sidebarTabSelectedIndex == 0,
-                onTap: () {
-                  setState(() {
-                    _sidebarTabSelectedIndex = 0;
-                  });
-                },
-                duotoneIcon: 'icons/bed',
-              ),
-              const Text(
-                '------------------------ RadioButtonTab ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                SidebarTab(
+                  text: 'Built-in',
+                  disabled: true,
+                  active: _sidebarTabSelectedIndex == 0,
+                  onTap: () {
+                    setState(() {
+                      _sidebarTabSelectedIndex = 0;
+                    });
+                  },
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 ),
-              ),
-              RadioButtonTab(
-                text: 'Built-in',
-                selected: _radioTabSelected,
-                onTap: (v) {
-                  setState(() {
-                    _radioTabSelected = v;
-                  });
-                },
-              ),
-              RadioButtonTab(
-                text: 'Built-in',
-                disabled: true,
-                selected: false,
-                onTap: (v) {
-                  setState(() {
-                    _radioTabSelected = v;
-                  });
-                },
-              ),
-              const Text(
-                '------------------------ StepTab ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                const Text(
+                  '------------------------ RadioButtonTab ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-              StepTab(
-                text: 'Tab',
-                duotoneIcon: 'icons/bed',
-                type: StepTabState.passed,
-                onTap: () {},
-              ),
-              StepTab(
-                text: 'Tab',
-                duotoneIcon: 'icons/bed',
-                type:
-                    _changeTabState ? StepTabState.passed : StepTabState.active,
-                onTap: () {
-                  setState(() {
-                    _changeTabState = !_changeTabState;
-                  });
-                },
-              ),
-              StepTab(
-                text: 'Tab',
-                duotoneIcon: 'icons/bed',
-                type: StepTabState.disabled,
-                onTap: () {},
-              ),
-              StepTab(
-                text: 'Tab',
-                duotoneIcon: 'icons/bed',
-                onTap: () {},
-              ),
-              StepTab(
-                text: 'Tab',
-                duotoneIcon: 'icons/bed',
-                type: StepTabState.updates,
-                onTap: () {},
-              ),
-              const Text(
-                '------------------------ CustomTextFormField ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                RadioButtonTab(
+                  text: 'Built-in',
+                  selected: _radioTabSelected,
+                  onTap: (v) {
+                    setState(() {
+                      _radioTabSelected = v;
+                    });
+                  },
                 ),
-              ),
-              const CustomTextFormField(
-                label: 'Label',
-                hint: 'Hint',
-                helper: 'Helper',
-              ),
-              const Text(
-                '------------------------ CustomCheckbox ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                RadioButtonTab(
+                  text: 'Built-in',
+                  disabled: true,
+                  selected: false,
+                  onTap: (v) {
+                    setState(() {
+                      _radioTabSelected = v;
+                    });
+                  },
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 20,
-                children: [
-                  CustomCheckbox(
-                    value: _checkboxValue,
-                    onTap: (value) {
-                      setState(() {
-                        _checkboxValue = value;
-                      });
-                    },
+                const Text(
+                  '------------------------ StepTab ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
-                  CustomCheckbox(
-                    value: false,
-                    disabled: true,
-                    onTap: (_) {},
-                  ),
-                ],
-              ),
-              const Text(
-                '------------------------ CustomRadioButton ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 20,
-                children: [
-                  CustomRadioButton(
-                    selected: _radioValue == true,
-                    onTap: (value) {
-                      setState(() {
-                        _radioValue = true;
-                      });
-                    },
-                  ),
-                  CustomRadioButton(
-                    selected: _radioValue == false,
-                    onTap: (value) {
-                      setState(() {
-                        _radioValue = false;
-                      });
-                    },
-                  ),
-                  CustomRadioButton(
-                    selected: false,
-                    disabled: true,
-                    onTap: (_) {},
-                  ),
-                ],
-              ),
-              const Text(
-                '------------------------ Size S ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                StepTab(
+                  text: 'Tab',
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                  type: StepTabState.passed,
+                  onTap: () {},
                 ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    disabled: true,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    disabled: true,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    disabled: true,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    disabled: true,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    text: 'Sign In',
-                    duotoneIcon: 'icons/plus-circle',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    disabled: true,
-                    text: 'Sign In',
-                    duotoneIcon: 'icons/plus-circle',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
-                    disabled: true,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
-                    disabled: true,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
-                    ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    disabled: true,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              const Text(
-                '------------------------ Size M ------------------------',
-                style: TextStyle(
-                  color: Colors.white,
+                StepTab(
+                  text: 'Tab',
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                  type: _changeTabState
+                      ? StepTabState.passed
+                      : StepTabState.active,
+                  onTap: () {
+                    setState(() {
+                      _changeTabState = !_changeTabState;
+                    });
+                  },
                 ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                StepTab(
+                  text: 'Tab',
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                  type: StepTabState.disabled,
+                  onTap: () {},
+                ),
+                StepTab(
+                  text: 'Tab',
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                  onTap: () {},
+                ),
+                StepTab(
+                  text: 'Tab',
+                  duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                  type: StepTabState.updates,
+                  onTap: () {},
+                ),
+                const Text(
+                  '------------------------ CustomTextFormField ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                const CustomTextFormField(
+                  label: 'Label',
+                  hint: 'Hint',
+                  helper: 'Helper',
+                ),
+                const Text(
+                  '------------------------ CustomCheckbox ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 20,
+                  children: [
+                    CustomCheckbox(
+                      value: _checkboxValue,
+                      onTap: (value) {
+                        setState(() {
+                          _checkboxValue = value;
+                        });
+                      },
                     ),
-                  ),
-                  CustomButton(
-                    disabled: true,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                    CustomCheckbox(
+                      value: false,
+                      disabled: true,
+                      onTap: (_) {},
                     ),
+                  ],
+                ),
+                const Text(
+                  '------------------------ CustomRadioButton ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    disabled: true,
-                    size: ButtonSize.m,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  spacing: 20,
+                  children: [
+                    CustomRadioButton(
+                      selected: _radioValue == true,
+                      onTap: (value) {
+                        setState(() {
+                          _radioValue = true;
+                        });
+                      },
                     ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    disabled: true,
-                    size: ButtonSize.m,
-                    text: 'Sign In',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                    CustomRadioButton(
+                      selected: _radioValue == false,
+                      onTap: (value) {
+                        setState(() {
+                          _radioValue = false;
+                        });
+                      },
                     ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    disabled: true,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    duotoneIcon: 'icons/plus-circle',
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                    CustomRadioButton(
+                      selected: false,
+                      disabled: true,
+                      onTap: (_) {},
                     ),
+                  ],
+                ),
+                const Text(
+                  '------------------------ Size S ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
-                  CustomButton(
-                    disabled: true,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    duotoneIcon: 'icons/plus-circle',
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
                     ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
-                    disabled: true,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                    CustomButton(
+                      disabled: true,
+                      text: 'Sign In',
+                      onTap: () async {},
                     ),
-                  ),
-                  CustomButton(
-                    type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
-                    disabled: true,
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async => Future.delayed(
-                      const Duration(seconds: 1),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
                     ),
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      disabled: true,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      disabled: true,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      disabled: true,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      text: 'Sign In',
+                      duotoneIcon:NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      disabled: true,
+                      text: 'Sign In',
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      disabled: true,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      disabled: true,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      disabled: true,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                const Text(
+                  '------------------------ Size M ------------------------',
+                  style: TextStyle(
+                    color: Colors.white,
                   ),
-                  CustomButton(
-                    type: ButtonType.tertiaryWhite,
-                    disabled: true,
-                    duotoneIcon: 'icons/plus-circle',
-                    text: 'Sign In',
-                    size: ButtonSize.m,
-                    onTap: () async {},
-                  ),
-                ],
-              ),
-            ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      disabled: true,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      disabled: true,
+                      size: ButtonSize.m,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      disabled: true,
+                      size: ButtonSize.m,
+                      text: 'Sign In',
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      disabled: true,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      disabled: true,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.secondary,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      disabled: true,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryBlack,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      disabled: true,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async => Future.delayed(
+                        const Duration(seconds: 1),
+                      ),
+                    ),
+                    CustomButton(
+                      type: ButtonType.tertiaryWhite,
+                      disabled: true,
+                      duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.plusCircle,
+                      text: 'Sign In',
+                      size: ButtonSize.m,
+                      onTap: () async {},
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -8,3 +8,6 @@ export 'radio_button_tab.dart';
 export 'sidebar_tab.dart';
 export 'logo.dart';
 export 'square_themed_button.dart';
+export 'sidebar_layout.dart';
+export 'custom_sidebar.dart';
+export 'user_avatar.dart';

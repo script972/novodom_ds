@@ -97,5 +97,9 @@ class NovodomCoreThemeDark extends NovodomCoreTheme {
         btnTetriaryBgActive: const Color(0xFFFFFFFF).withValues(alpha: 0.35),
         btnTetriaryIconBlue: const Color(0xFFFFFFFF).withValues(alpha: 0.5),
         btnTetriaryIconBlack: const Color(0xFFFFFFFF),
+        sidebarSizeBtnIcon: const Color(0xFFFFFFFF),
+        sidebarSizeBtn: const Color(0xFF2B262B),
+        username: const Color(0xFFFFFFFF),
+        projectTextIcon:const Color(0xFFFFFFFF).withValues(alpha: 0.5),
       );
 }

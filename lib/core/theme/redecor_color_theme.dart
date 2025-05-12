@@ -41,6 +41,10 @@ class RedecorColorTheme {
   Color btnTetriaryBgActive;
   Color btnTetriaryIconBlue;
   Color btnTetriaryIconBlack;
+  Color sidebarSizeBtn;
+  Color sidebarSizeBtnIcon;
+  Color username;
+  Color projectTextIcon;
 
   RedecorColorTheme({
     required this.blackColor,
@@ -82,5 +86,9 @@ class RedecorColorTheme {
     required this.btnTetriaryBgActive,
     required this.btnTetriaryIconBlue,
     required this.btnTetriaryIconBlack,
+    required this.sidebarSizeBtn,
+    required this.sidebarSizeBtnIcon,
+    required this.username,
+    required this.projectTextIcon,
   });
 }

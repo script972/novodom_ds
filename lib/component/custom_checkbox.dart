@@ -29,11 +29,11 @@ class CustomCheckbox extends StatelessWidget {
         ),
         child: value
             ? SvgPicture.asset(
-                NovodomTheme(context).assetsTheme.tickCircle,
+                NovodomTheme(context).assetsTheme.icons16.tickCircle,
                 height: 16,
               )
             : SvgPicture.asset(
-                NovodomTheme(context).assetsTheme.add,
+                NovodomTheme(context).assetsTheme.icons16.add,
                 height: 16,
                 colorFilter: disabled
                     ? ColorFilter.mode(

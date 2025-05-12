@@ -160,7 +160,7 @@ class _CustomButtonState extends State<CustomButton> {
     }
   }
 
-  EdgeInsets _padding() {
+  EdgeInsets? _padding() {
     return widget.text == null
         ? EdgeInsets.all(
             widget.size == ButtonSize.s ? 6 : 10,
@@ -235,7 +235,7 @@ class _CustomButtonState extends State<CustomButton> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.text == null && widget.icon == null) return const SizedBox();
+    if (widget.text == null && widget.icon == null && widget.duotoneIcon == null) return const SizedBox();
     return InkWell(
       onTap: widget.disabled || _loading
           ? null
