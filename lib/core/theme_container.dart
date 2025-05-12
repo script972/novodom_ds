@@ -1,6 +1,6 @@
-import 'package:novodom_ds/core/redecor_theme.dart';
+import 'package:novodom_ds/core/novodom_theme.dart';
 import 'package:novodom_ds/enviroment_variables.dart';
-import 'package:novodom_ds/theme/core/redecor_theme_light.dart';
+import 'package:novodom_ds/theme/core/novodom_theme_light.dart';
 
 abstract class ThemeFactory {
   static NovodomTheme get lightTheme => _vendorTheme.lightTheme;
