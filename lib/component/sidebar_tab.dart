@@ -10,16 +10,16 @@ class SidebarTab extends StatefulWidget {
     required this.onTap,
     this.disabled = false,
     this.active = false,
+    this.mini = false,
     this.changeIconOrder = false,
-    this.darkStyle = true,
   });
 
   final String text;
   final String duotoneIcon;
   final bool disabled;
   final bool active;
+  final bool mini;
   final bool changeIconOrder;
-  final bool darkStyle;
   final Function() onTap;
 
   @override
@@ -94,39 +94,48 @@ class _SidebarTabState extends State<SidebarTab> {
         });
       },
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 100),
+        duration: NovodomTheme(context).durationTheme.animationDuration,
         padding: const EdgeInsets.all(14),
-        width: 220,
+        width: widget.mini ? 52 : 220,
+        height: 52,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
           color: _bgColor(),
         ),
-        child: Row(
-          spacing: 8,
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Opacity(
-              opacity: widget.disabled ? 0.5 : 1,
-              child: DuotoneIcon(
-                duotoneIcon: widget.duotoneIcon,
-                changeOrder: widget.changeIconOrder,
-                iconBlackColor: _duotoneBlackColor(),
-                iconBlueColor: _duotoneBlueColor(),
+        child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            spacing: 8,
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Opacity(
+                opacity: widget.disabled ? 0.5 : 1,
+                child: DuotoneIcon(
+                  duotoneIcon: widget.duotoneIcon,
+                  changeOrder: widget.changeIconOrder,
+                  iconBlackColor: _duotoneBlackColor(),
+                  iconBlueColor: _duotoneBlueColor(),
+                ),
               ),
-            ),
-            AnimatedDefaultTextStyle(
-              duration: const Duration(milliseconds: 100),
-              style: NovodomTheme(context).textTheme.linkM.copyWith(
-                    color: _childColor(),
+              AnimatedOpacity(
+                opacity: widget.mini ? 0 : 1,
+                duration: NovodomTheme(context).durationTheme.animationDuration,
+                child: AnimatedDefaultTextStyle(
+                  duration: NovodomTheme(context).durationTheme.animationDuration,
+                  style: NovodomTheme(context).textTheme.linkM.copyWith(
+                        color: _childColor(),
+                      ),
+                  child: Text(
+                    widget.text,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-              child: Text(
-                widget.text,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

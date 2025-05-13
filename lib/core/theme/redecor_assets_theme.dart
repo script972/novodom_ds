@@ -5,6 +5,7 @@ class RedecorAssetsTheme {
     required this.icons24,
     required this.duotoneIcons,
     required this.logo,
+    required this.logoMini,
     required this.updates,
     required this.userPic,
   });
@@ -13,6 +14,7 @@ class RedecorAssetsTheme {
   final Icons24 icons24;
   final DuotoneIcons duotoneIcons;
   final String logo;
+  final String logoMini;
   final String updates;
   final String userPic;
 }

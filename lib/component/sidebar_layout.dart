@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:novodom_ds/component/custom_sidebar.dart';
 import 'package:novodom_ds/core/novodom_theme.dart';
+import 'package:novodom_ds/default/default_palette.dart';
 
 class SidebarLayout extends StatefulWidget {
   const SidebarLayout({
     super.key,
     required this.child,
+    required this.username,
+    required this.selectedProject,
+    required this.userAvatar,
   });
 
+  final String username;
+  final String? userAvatar;
+  final String? selectedProject;
   final Widget child;
 
   @override
@@ -17,60 +24,134 @@ class SidebarLayout extends StatefulWidget {
 
 class _SidebarLayoutState extends State<SidebarLayout> {
   bool _sidebarOpened = true;
+  SidebarTabType _activeTab = SidebarTabType.dashboard;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: Alignment.center,
       children: [
-        Positioned(
-          right: 0,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 100),
-            width: MediaQuery.sizeOf(context).width -
-                (_sidebarOpened ? 220 : 52) -
-                48,
-            child: widget.child,
-          ),
-        ),
-        Positioned(
-          left: 0,
-          top: 0,
-          bottom: 0,
-          child: Stack(
-            clipBehavior: Clip.none,
-            alignment: Alignment.center,
-            children: [
-              CustomSidebar(
-                sidebarOpened: _sidebarOpened,
-                userAvatar: null,
-                username: 'Alice Cooper',
-                selectedProject: '232',
-                onPlusTap:() async {
-                   debugPrint('onPlusTap');
-                },
-                onProjectTap: () {
-                  debugPrint('onProjectTap');
-                },
-                onChatTap: () {
-                  debugPrint('onChatTap');
-                },
-                onLegalTap: () {
-                  debugPrint('onLegalTap');
-                },
-                onCardTap: () {
-                  debugPrint('onCardTap');
-                },
-                onNotebookTap: () {
-                  debugPrint('onNotebookTap');
-                },
+        Row(
+          children: [
+            CustomSidebar(
+              sidebarOpened: _sidebarOpened,
+              activeTab: _activeTab,
+              userAvatar: widget.userAvatar,
+              permitDocumentsDisabled: true,
+              dashboardDisabled: false,
+              digitalMoodBoardsDisabled: true,
+              iDesignDisabled: true,
+              weDesignDisabled: true,
+              myOrderDisabled: true,
+              propertyDocumentsDisabled: true,
+              floorPlanDisabled: true,
+              measurementsDisabled: true,
+              questionnaireDisabled: false,
+              username: widget.username,
+              selectedProject: widget.selectedProject,
+              onMoreTap: () async {
+                setState(() {
+                  _sidebarOpened = !_sidebarOpened;
+                });
+                debugPrint('onMoreTap');
+              },
+              onPlusTap: () async {
+                debugPrint('onPlusTap');
+              },
+              onProjectTap: () {
+                debugPrint('onProjectTap');
+              },
+              onChatTap: () {
+                debugPrint('onChatTap');
+              },
+              onLegalTap: () {
+                debugPrint('onLegalTap');
+              },
+              onCardTap: () {
+                debugPrint('onCardTap');
+              },
+              onNotebookTap: () {
+                debugPrint('onNotebookTap');
+              },
+              onDashboardTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.dashboard;
+                });
+                debugPrint('onDashboardTap');
+              },
+              onDigitalMoodBoardsTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.digitalMoodBoards;
+                });
+                debugPrint('onDigitalMoodBoardsTap');
+              },
+              onFloorPlanTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.floorPlan;
+                });
+                debugPrint('onFloorPlanTap');
+              },
+              onIDesignTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.iDesign;
+                });
+                debugPrint('onIDesignTap');
+              },
+              onMeasurementsTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.measurements;
+                });
+                debugPrint('onMeasurementsTap');
+              },
+              onMyOrderTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.myOrder;
+                });
+                debugPrint('onMyOrderTap');
+              },
+              onPermitDocumentsTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.permitDocuments;
+                });
+                debugPrint('onPermitDocumentsTap');
+              },
+              onPropertyDocumentsTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.propertyDocuments;
+                });
+                debugPrint('onPropertyDocumentsTap');
+              },
+              onQuestionnaireTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.questionnaire;
+                });
+                debugPrint('onQuestionnaireTap');
+              },
+              onWeDesignTap: () {
+                setState(() {
+                  _activeTab = SidebarTabType.weDesign;
+                });
+                debugPrint('onWeDesignTap');
+              },
+            ),
+            Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  color: DefaultPalette.smokeColor,
+                  borderRadius: const BorderRadiusDirectional.only(
+                    topStart: Radius.circular(32),
+                    bottomStart: Radius.circular(32),
+                  ),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
+                child: widget.child,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
         AnimatedPositioned(
-          duration: const Duration(milliseconds: 100),
+          duration: NovodomTheme(context).durationTheme.animationDuration,
           left: ((_sidebarOpened ? 220 : 52) + 48) - 14,
+          top: MediaQuery.sizeOf(context).height / 2 - 14,
           child: InkWell(
             onTap: () {
               setState(() {

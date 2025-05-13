@@ -257,7 +257,7 @@ class _CustomButtonState extends State<CustomButton> {
       },
       child: AnimatedContainer(
         height: widget.size == ButtonSize.s ? 36 : 44,
-        duration: const Duration(milliseconds: 100),
+        duration: NovodomTheme(context).durationTheme.animationDuration,
         padding: _padding(),
         alignment: widget.fullWidth ? Alignment.center : null,
         decoration: BoxDecoration(

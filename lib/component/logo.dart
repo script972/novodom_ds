@@ -4,15 +4,30 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:novodom_ds/index.dart';
 
 class Logo extends StatelessWidget {
-  const Logo({super.key});
+  const Logo({
+    super.key,
+    this.mini = false,
+  });
+
+  final bool mini;
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      NovodomTheme(context).assetsTheme.logo,
-      colorFilter: ColorFilter.mode(
-        NovodomTheme(context).colorTheme.logo,
-        BlendMode.srcIn,
+    final theme = NovodomTheme(context);
+
+    return AnimatedSwitcher(
+      duration: theme.durationTheme.animationDuration,
+      transitionBuilder: (child, animation) => FadeTransition(
+        opacity: animation,
+        child: child,
+      ),
+      child: SvgPicture.asset(
+        mini ? theme.assetsTheme.logoMini : theme.assetsTheme.logo,
+        key: ValueKey(mini),
+        colorFilter: ColorFilter.mode(
+          theme.colorTheme.logo,
+          BlendMode.srcIn,
+        ),
       ),
     );
   }

@@ -3,6 +3,7 @@ import 'package:novodom_ds/core/novodom_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_assets_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_button_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_data_theme.dart';
+import 'package:novodom_ds/core/theme/redecor_duration_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_shadow_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_size_theme.dart';
 import 'package:novodom_ds/core/theme/redecor_text_theme.dart';
@@ -13,6 +14,11 @@ abstract class NovodomCoreTheme implements NovodomTheme {
   RedecorSizeTheme sizeTheme = RedecorSizeTheme(
     iconSize: 36.0,
     buttonBorderRadius: 12.0,
+  );
+
+  @override
+  RedecorDurationTheme durationTheme = RedecorDurationTheme(
+    animationDuration: const Duration(milliseconds: 100),
   );
 
   @override
@@ -27,6 +33,7 @@ abstract class NovodomCoreTheme implements NovodomTheme {
   @override
   RedecorAssetsTheme get assetsTheme => RedecorAssetsTheme(
         logo: 'packages/novodom_ds/assets/icons/logo.svg',
+        logoMini: 'packages/novodom_ds/assets/icons/logoMini.svg',
         userPic: 'packages/novodom_ds/assets/icons/userPic.png',
         updates: 'packages/novodom_ds/assets/icons/updates.svg',
         icons16: Icons16(
