@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:novodom_ds/component/custom_sidebar.dart';
+import 'package:novodom_ds/component/sidebar_tab.dart';
+import 'package:novodom_ds/component/square_themed_button.dart';
 import 'package:novodom_ds/core/novodom_theme.dart';
 import 'package:novodom_ds/default/default_palette.dart';
+
+enum SidebarTabType {
+  dashboard,
+  questionnaire,
+  iDesign,
+  propertyDocuments,
+  measurements,
+  floorPlan,
+  digitalMoodBoards,
+  weDesign,
+  myOrder,
+  permitDocuments,
+}
 
 class SidebarLayout extends StatefulWidget {
   const SidebarLayout({
@@ -34,103 +49,189 @@ class _SidebarLayoutState extends State<SidebarLayout> {
           children: [
             CustomSidebar(
               sidebarOpened: _sidebarOpened,
-              activeTab: _activeTab,
               userAvatar: widget.userAvatar,
-              permitDocumentsDisabled: true,
-              dashboardDisabled: false,
-              digitalMoodBoardsDisabled: true,
-              iDesignDisabled: true,
-              weDesignDisabled: true,
-              myOrderDisabled: true,
-              propertyDocumentsDisabled: true,
-              floorPlanDisabled: true,
-              measurementsDisabled: true,
-              questionnaireDisabled: false,
               username: widget.username,
               selectedProject: widget.selectedProject,
               onMoreTap: () async {
                 setState(() {
                   _sidebarOpened = !_sidebarOpened;
                 });
-                debugPrint('onMoreTap');
               },
+              rowButtons: [
+                SquareThemedButton(
+                  active: false,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.chat,
+                  onTap: () {
+                    debugPrint('chat');
+                  },
+                ),
+                SquareThemedButton(
+                  active: false,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.legal,
+                  onTap: () {
+                    debugPrint('legal');
+                  },
+                ),
+                SquareThemedButton(
+                  active: false,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.card,
+                  onTap: () {
+                    debugPrint('card');
+                  },
+                ),
+                SquareThemedButton(
+                  active: false,
+                  duotoneIcon: NovodomTheme(context)
+                      .assetsTheme
+                      .duotoneIcons
+                      .notebookSquare,
+                  onTap: () {
+                    debugPrint('notebookSquare');
+                  },
+                ),
+              ],
+              tabs: [
+                SidebarTab(
+                  text: 'Project Dashboard',
+                  active: _activeTab == SidebarTabType.dashboard,
+                  disabled: false,
+                  mini: !_sidebarOpened,
+                  duotoneIcon: NovodomTheme(context)
+                      .assetsTheme
+                      .duotoneIcons
+                      .elementPlus,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.dashboard;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'Questionnaire',
+                  active: _activeTab == SidebarTabType.questionnaire,
+                  disabled: false,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.question,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.questionnaire;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'iDesign',
+                  active: _activeTab == SidebarTabType.iDesign,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.penTool,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.iDesign;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'Property Documents',
+                  active: _activeTab == SidebarTabType.propertyDocuments,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.document,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.propertyDocuments;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'Measurements',
+                  active: _activeTab == SidebarTabType.measurements,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.ruler,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.measurements;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'Floor Plan',
+                  active: _activeTab == SidebarTabType.floorPlan,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.layers,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.floorPlan;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'Digital Mood Boards',
+                  active: _activeTab == SidebarTabType.digitalMoodBoards,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.pallete,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.digitalMoodBoards;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'weDesign',
+                  active: _activeTab == SidebarTabType.weDesign,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.carousel,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.weDesign;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'My Order',
+                  active: _activeTab == SidebarTabType.myOrder,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.clipboard,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.myOrder;
+                    });
+                  },
+                ),
+                SidebarTab(
+                  text: 'Permit Documents',
+                  active: _activeTab == SidebarTabType.permitDocuments,
+                  disabled: true,
+                  mini: !_sidebarOpened,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.signature,
+                  onTap: () {
+                    setState(() {
+                      _activeTab = SidebarTabType.permitDocuments;
+                    });
+                  },
+                ),
+              ],
               onPlusTap: () async {
                 debugPrint('onPlusTap');
               },
               onProjectTap: () {
                 debugPrint('onProjectTap');
-              },
-              onChatTap: () {
-                debugPrint('onChatTap');
-              },
-              onLegalTap: () {
-                debugPrint('onLegalTap');
-              },
-              onCardTap: () {
-                debugPrint('onCardTap');
-              },
-              onNotebookTap: () {
-                debugPrint('onNotebookTap');
-              },
-              onDashboardTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.dashboard;
-                });
-                debugPrint('onDashboardTap');
-              },
-              onDigitalMoodBoardsTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.digitalMoodBoards;
-                });
-                debugPrint('onDigitalMoodBoardsTap');
-              },
-              onFloorPlanTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.floorPlan;
-                });
-                debugPrint('onFloorPlanTap');
-              },
-              onIDesignTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.iDesign;
-                });
-                debugPrint('onIDesignTap');
-              },
-              onMeasurementsTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.measurements;
-                });
-                debugPrint('onMeasurementsTap');
-              },
-              onMyOrderTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.myOrder;
-                });
-                debugPrint('onMyOrderTap');
-              },
-              onPermitDocumentsTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.permitDocuments;
-                });
-                debugPrint('onPermitDocumentsTap');
-              },
-              onPropertyDocumentsTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.propertyDocuments;
-                });
-                debugPrint('onPropertyDocumentsTap');
-              },
-              onQuestionnaireTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.questionnaire;
-                });
-                debugPrint('onQuestionnaireTap');
-              },
-              onWeDesignTap: () {
-                setState(() {
-                  _activeTab = SidebarTabType.weDesign;
-                });
-                debugPrint('onWeDesignTap');
               },
             ),
             Expanded(

@@ -2,88 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:novodom_ds/index.dart';
 
-enum SidebarTabType {
-  dashboard,
-  questionnaire,
-  iDesign,
-  propertyDocuments,
-  measurements,
-  floorPlan,
-  digitalMoodBoards,
-  weDesign,
-  myOrder,
-  permitDocuments,
-}
-
 class CustomSidebar extends StatelessWidget {
   const CustomSidebar({
     super.key,
     required this.sidebarOpened,
-    required this.activeTab,
     required this.username,
     required this.userAvatar,
     required this.selectedProject,
     required this.onProjectTap,
     required this.onPlusTap,
-    required this.onChatTap,
-    required this.onLegalTap,
-    required this.onCardTap,
-    required this.onNotebookTap,
     required this.onMoreTap,
-    required this.onPermitDocumentsTap,
-    required this.onMyOrderTap,
-    required this.onWeDesignTap,
-    required this.onDigitalMoodBoardsTap,
-    required this.onFloorPlanTap,
-    required this.onMeasurementsTap,
-    required this.onPropertyDocumentsTap,
-    required this.onIDesignTap,
-    required this.onQuestionnaireTap,
-    required this.onDashboardTap,
-    this.permitDocumentsDisabled = false,
-    this.myOrderDisabled = false,
-    this.weDesignDisabled = false,
-    this.digitalMoodBoardsDisabled = false,
-    this.floorPlanDisabled = false,
-    this.measurementsDisabled = false,
-    this.propertyDocumentsDisabled = false,
-    this.iDesignDisabled = false,
-    this.questionnaireDisabled = false,
-    this.dashboardDisabled = false,
+    required this.tabs,
+    required this.rowButtons,
   });
 
   final bool sidebarOpened;
-  final SidebarTabType activeTab;
   final String username;
   final String? userAvatar;
   final String? selectedProject;
   final Function() onProjectTap;
   final Future Function() onPlusTap;
-  final Function() onChatTap;
-  final Function() onLegalTap;
-  final Function() onCardTap;
-  final Function() onNotebookTap;
-  final Function() onMoreTap;
-  final Function() onPermitDocumentsTap;
-  final Function() onMyOrderTap;
-  final Function() onWeDesignTap;
-  final Function() onDigitalMoodBoardsTap;
-  final Function() onFloorPlanTap;
-  final Function() onMeasurementsTap;
-  final Function() onPropertyDocumentsTap;
-  final Function() onIDesignTap;
-  final Function() onQuestionnaireTap;
-  final Function() onDashboardTap;
-  final bool permitDocumentsDisabled;
-  final bool myOrderDisabled;
-  final bool weDesignDisabled;
-  final bool digitalMoodBoardsDisabled;
-  final bool floorPlanDisabled;
-  final bool measurementsDisabled;
-  final bool propertyDocumentsDisabled;
-  final bool iDesignDisabled;
-  final bool questionnaireDisabled;
-  final bool dashboardDisabled;
+  final Future Function() onMoreTap;
+  final List<SidebarTab> tabs; 
+  final List<SquareThemedButton> rowButtons; 
 
   @override
   Widget build(BuildContext context) {
@@ -199,38 +140,7 @@ class CustomSidebar extends StatelessWidget {
                     spacing: 4,
                     children: [
                       if (sidebarOpened) ...[
-                        SquareThemedButton(
-                          active: false,
-                          duotoneIcon: NovodomTheme(context)
-                              .assetsTheme
-                              .duotoneIcons
-                              .chat,
-                          onTap: onChatTap,
-                        ),
-                        SquareThemedButton(
-                          active: false,
-                          duotoneIcon: NovodomTheme(context)
-                              .assetsTheme
-                              .duotoneIcons
-                              .legal,
-                          onTap: onLegalTap,
-                        ),
-                        SquareThemedButton(
-                          active: false,
-                          duotoneIcon: NovodomTheme(context)
-                              .assetsTheme
-                              .duotoneIcons
-                              .card,
-                          onTap: onCardTap,
-                        ),
-                        SquareThemedButton(
-                          active: false,
-                          duotoneIcon: NovodomTheme(context)
-                              .assetsTheme
-                              .duotoneIcons
-                              .notebookSquare,
-                          onTap: onNotebookTap,
-                        ),
+                       ...rowButtons
                       ] else
                         SquareThemedButton(
                           active: false,
@@ -246,98 +156,8 @@ class CustomSidebar extends StatelessWidget {
                 const SizedBox(
                   height: 24,
                 ),
-                SidebarTab(
-                  text: 'Project Dashboard',
-                  active: activeTab == SidebarTabType.dashboard,
-                  disabled: dashboardDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon: NovodomTheme(context)
-                      .assetsTheme
-                      .duotoneIcons
-                      .elementPlus,
-                  onTap: onDashboardTap,
-                ),
-                SidebarTab(
-                  text: 'Questionnaire',
-                  active: activeTab == SidebarTabType.questionnaire,
-                  disabled: questionnaireDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.question,
-                  onTap: onQuestionnaireTap,
-                ),
-                SidebarTab(
-                  text: 'iDesign',
-                  active: activeTab == SidebarTabType.iDesign,
-                  disabled: iDesignDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.penTool,
-                  onTap: onIDesignTap,
-                ),
-                SidebarTab(
-                  text: 'Property Documents',
-                  active: activeTab == SidebarTabType.propertyDocuments,
-                  disabled: propertyDocumentsDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.document,
-                  onTap: onPropertyDocumentsTap,
-                ),
-                SidebarTab(
-                  text: 'Measurements',
-                  active: activeTab == SidebarTabType.measurements,
-                  disabled: measurementsDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.ruler,
-                  onTap: onMeasurementsTap,
-                ),
-                SidebarTab(
-                  text: 'Floor Plan',
-                  active: activeTab == SidebarTabType.floorPlan,
-                  disabled: floorPlanDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.layers,
-                  onTap: onFloorPlanTap,
-                ),
-                SidebarTab(
-                  text: 'Digital Mood Boards',
-                  active: activeTab == SidebarTabType.digitalMoodBoards,
-                  disabled: digitalMoodBoardsDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.pallete,
-                  onTap: onDigitalMoodBoardsTap,
-                ),
-                SidebarTab(
-                  text: 'weDesign',
-                  active: activeTab == SidebarTabType.weDesign,
-                  disabled: weDesignDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.carousel,
-                  onTap: onWeDesignTap,
-                ),
-                SidebarTab(
-                  text: 'My Order',
-                  active: activeTab == SidebarTabType.myOrder,
-                  disabled: myOrderDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.clipboard,
-                  onTap: onMyOrderTap,
-                ),
-                SidebarTab(
-                  text: 'Permit Documents',
-                  active: activeTab == SidebarTabType.permitDocuments,
-                  disabled: permitDocumentsDisabled,
-                  mini: !sidebarOpened,
-                  duotoneIcon:
-                      NovodomTheme(context).assetsTheme.duotoneIcons.signature,
-                  onTap: onPermitDocumentsTap,
-                ),
+                ...tabs,
+               
                 const SizedBox(
                   height: 40,
                 ),
