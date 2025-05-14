@@ -23,8 +23,8 @@ class CustomSidebar extends StatelessWidget {
   final Function() onProjectTap;
   final Future Function() onPlusTap;
   final Future Function() onMoreTap;
-  final List<SidebarTab> tabs; 
-  final List<SquareThemedButton> rowButtons; 
+  final List<SidebarTab> tabs;
+  final List<SquareThemedButton> rowButtons;
 
   @override
   Widget build(BuildContext context) {
@@ -85,16 +85,20 @@ class CustomSidebar extends StatelessWidget {
                                 onTap: onProjectTap,
                                 child: Row(
                                   children: [
-                                    Text(
-                                      'Project $selectedProject',
-                                      style: NovodomTheme(context)
-                                          .textTheme
-                                          .linkS
-                                          .copyWith(
-                                            color: NovodomTheme(context)
-                                                .colorTheme
-                                                .projectTextIcon,
-                                          ),
+                                    Flexible(
+                                      child: Text(
+                                        selectedProject ?? '',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: NovodomTheme(context)
+                                            .textTheme
+                                            .linkS
+                                            .copyWith(
+                                              color: NovodomTheme(context)
+                                                  .colorTheme
+                                                  .projectTextIcon,
+                                            ),
+                                      ),
                                     ),
                                     SvgPicture.asset(
                                       NovodomTheme(context)
@@ -139,9 +143,7 @@ class CustomSidebar extends StatelessWidget {
                   child: Row(
                     spacing: 4,
                     children: [
-                      if (sidebarOpened) ...[
-                       ...rowButtons
-                      ] else
+                      if (sidebarOpened) ...[...rowButtons] else
                         SquareThemedButton(
                           active: false,
                           duotoneIcon: NovodomTheme(context)
@@ -157,7 +159,6 @@ class CustomSidebar extends StatelessWidget {
                   height: 24,
                 ),
                 ...tabs,
-               
                 const SizedBox(
                   height: 40,
                 ),
