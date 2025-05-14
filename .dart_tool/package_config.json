@@ -81,9 +81,9 @@
     },
     {
       "name": "intl",
-      "rootUri": "file:///Users/veronika/.pub-cache/hosted/pub.dev/intl-0.20.2",
+      "rootUri": "file:///Users/veronika/.pub-cache/hosted/pub.dev/intl-0.19.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.0"
     },
     {
       "name": "leak_tracker",
@@ -248,7 +248,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2025-05-12T04:02:20.246899Z",
+  "generated": "2025-05-14T05:16:05.991195Z",
   "generator": "pub",
   "generatorVersion": "3.6.0",
   "flutterRoot": "file:///Users/veronika/Develop/sdk/flutter",
