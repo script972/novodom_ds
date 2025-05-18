@@ -144,82 +144,60 @@ abstract class NovodomCoreTheme implements NovodomTheme {
   RedecorTextTheme get textTheme => RedecorTextTheme(
         p1Medium: const TextStyle(
           fontSize: 14,
-          fontVariations: [
-            FontVariation('wght', 500),
-          ],
+          fontWeight: FontWeight.w500,
           height: 20 / 14,
         ),
         p2Medium: const TextStyle(
           fontSize: 12,
-          fontVariations: [
-            FontVariation('wght', 500),
-          ],
+          fontWeight: FontWeight.w500,
           height: 18 / 13,
         ),
         linkS: const TextStyle(
           fontSize: 12,
-          fontVariations: [
-            FontVariation('wght', 500),
-          ],
+          fontWeight: FontWeight.w500,
           height: 12 / 12,
         ),
         p1Semibold: const TextStyle(
           fontSize: 14,
-          fontVariations: [
-            FontVariation('wght', 600),
-          ],
+          fontWeight: FontWeight.w600,
           height: 20 / 14,
         ),
         p2Semibold: const TextStyle(
           fontSize: 12,
-          fontVariations: [
-            FontVariation('wght', 600),
-          ],
+          fontWeight: FontWeight.w600,
           height: 18 / 12,
         ),
         p2Bold: const TextStyle(
           fontSize: 12,
-          fontVariations: [
-            FontVariation('wght', 700),
-          ],
+          fontWeight: FontWeight.w700,
           height: 18 / 12,
         ),
         linkM: const TextStyle(
           fontSize: 14,
-          fontVariations: [
-            FontVariation('wght', 600),
-          ],
+          fontWeight: FontWeight.w600,
           height: 14 / 14,
         ),
         p2: const TextStyle(
           fontSize: 16,
-          fontVariations: [
-            FontVariation('wght', 400),
-          ],
+          fontWeight: FontWeight.w400,
           height: 24 / 16,
         ),
         h1: const TextStyle(
           fontSize: 24,
           fontFamily: 'Montserrat',
-          fontVariations: [
-            FontVariation('wght', 700),
-          ],
+          fontWeight: FontWeight.w700,
           height: 28 / 24,
         ),
         h2: const TextStyle(
           fontSize: 18,
           fontFamily: 'Montserrat',
-          fontVariations: [
-            FontVariation('wght', 700),
-          ],
+          fontWeight: FontWeight.w700,
           height: 24 / 18,
         ),
         h3: const TextStyle(
           fontSize: 16,
           fontFamily: 'Montserrat',
-          fontVariations: [
-            FontVariation('wght', 700),
-          ],
+          fontWeight: FontWeight.w700,
           height: 20 / 16,
         ),
       );
