@@ -21,13 +21,13 @@ class RadioButtonTab extends StatelessWidget {
     return InkWell(
       onTap: disabled ? null : () => onTap(!selected),
       child: Stack(
-        fit: StackFit.expand,
         children: [
           Container(
             padding: const EdgeInsets.symmetric(
               vertical: 16,
               horizontal: 44,
             ),
+            alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border.all(
                 color: selected && !disabled
