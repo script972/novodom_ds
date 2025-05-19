@@ -37,6 +37,7 @@ class CustomTextFormField extends StatefulWidget {
     this.errorBorder,
     this.disabledBorder,
     this.focusedErrorBorder,
+    this.maxIconHeight,
   });
 
   final String? label;
@@ -71,6 +72,7 @@ class CustomTextFormField extends StatefulWidget {
   final InputBorder? errorBorder;
   final InputBorder? disabledBorder;
   final InputBorder? focusedErrorBorder;
+  final double? maxIconHeight;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -135,12 +137,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             errorBorder: widget.errorBorder,
             disabledBorder: widget.disabledBorder,
             focusedErrorBorder: widget.focusedErrorBorder,
-            suffixIconConstraints: const BoxConstraints(
-              maxHeight: 24,
+            suffixIconConstraints: BoxConstraints(
+              maxHeight: widget.maxIconHeight ?? 24,
             ),
             counter: const SizedBox(),
-            prefixIconConstraints: const BoxConstraints(
-              maxHeight: 24,
+            prefixIconConstraints: BoxConstraints(
+              maxHeight: widget.maxIconHeight ?? 24,
             ),
             suffixIcon: widget.suffixIcon != null
                 ? Padding(
