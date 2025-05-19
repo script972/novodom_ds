@@ -39,6 +39,8 @@ class CustomTextFormField extends StatefulWidget {
     this.disabledBorder,
     this.focusedErrorBorder,
     this.maxIconHeight,
+    this.fillColor,
+    this.iconPadding,
   });
 
   final String? label;
@@ -75,6 +77,8 @@ class CustomTextFormField extends StatefulWidget {
   final InputBorder? disabledBorder;
   final InputBorder? focusedErrorBorder;
   final double? maxIconHeight;
+  final Color? fillColor;
+  final double? iconPadding;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -148,19 +152,23 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             ),
             suffixIcon: widget.suffixIcon != null
                 ? Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    padding: EdgeInsets.symmetric(
+                        horizontal: widget.iconPadding ?? 14),
                     child: widget.suffixIcon,
                   )
                 : null,
             prefixIcon: Padding(
               padding: EdgeInsets.only(
-                  left: 20, right: widget.prefixIcon != null ? 14 : 0),
+                  left: 20,
+                  right:
+                      widget.prefixIcon != null ? widget.iconPadding ?? 14 : 0),
               child: widget.prefixIcon,
             ),
             contentPadding: const EdgeInsets.fromLTRB(0, 12, 14, 12),
             hintText: widget.hint,
             filled: widget.readOnly || !widget.enabled,
-            fillColor: NovodomTheme(context).colorTheme.black5Color,
+            fillColor: widget.fillColor ??
+                NovodomTheme(context).colorTheme.black5Color,
             hintStyle: NovodomTheme(context).textTheme.p1Medium.copyWith(
                   color: widget.readOnly
                       ? NovodomTheme(context).colorTheme.black60Color
