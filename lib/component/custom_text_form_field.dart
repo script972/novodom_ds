@@ -31,6 +31,12 @@ class CustomTextFormField extends StatefulWidget {
     this.enabled = true,
     this.readOnly = false,
     this.textCapitalization = TextCapitalization.none,
+    this.border,
+    this.enabledBorder,
+    this.focusedBorder,
+    this.errorBorder,
+    this.disabledBorder,
+    this.focusedErrorBorder,
   });
 
   final String? label;
@@ -59,6 +65,12 @@ class CustomTextFormField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final Iterable<String>? autofillHints;
   final AutovalidateMode autovalidateMode;
+  final InputBorder? border;
+  final InputBorder? enabledBorder;
+  final InputBorder? focusedBorder;
+  final InputBorder? errorBorder;
+  final InputBorder? disabledBorder;
+  final InputBorder? focusedErrorBorder;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -117,6 +129,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             return widget.validator != null ? widget.validator!(value) : null;
           },
           decoration: InputDecoration(
+            border: widget.border,
+            enabledBorder: widget.enabledBorder,
+            focusedBorder: widget.focusedBorder,
+            errorBorder: widget.errorBorder,
+            disabledBorder: widget.disabledBorder,
+            focusedErrorBorder: widget.focusedErrorBorder,
             suffixIconConstraints: const BoxConstraints(
               maxHeight: 24,
             ),
