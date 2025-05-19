@@ -27,6 +27,7 @@ class RadioButtonTab extends StatelessWidget {
               vertical: 16,
               horizontal: 44,
             ),
+            alignment: Alignment.center,
             decoration: BoxDecoration(
               border: Border.all(
                 color: selected && !disabled
@@ -49,7 +50,7 @@ class RadioButtonTab extends StatelessWidget {
             right: 8,
             top: 8,
             child: AnimatedScale(
-              duration: const Duration(milliseconds: 50),
+              duration: NovodomTheme(context).durationTheme.animationDuration,
               scale: selected && !disabled ? 1 : 0,
               child: CustomRadioButton(
                 selected: true,

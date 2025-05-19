@@ -94,5 +94,14 @@ class NovodomCoreThemeLight extends NovodomCoreTheme {
         tabIconBlackDisabled: const Color(0xFF130E14),
         tabIconBlueDisabled: const Color(0xFF4958F2),
         logo: const Color(0xFF4958F2),
+        btnTetriaryBgDefault: const Color(0xFF130E14).withValues(alpha: 0.05),
+        btnTetriaryBgHover: const Color(0xFF130E14).withValues(alpha: 0.1),
+        btnTetriaryBgActive: const Color(0xFF130E14).withValues(alpha: 0.1),
+        btnTetriaryIconBlue: const Color(0xFF4958F2),
+        btnTetriaryIconBlack: const Color(0xFF130E14),
+        sidebarSizeBtnIcon: const Color(0xFFFFFFFF),
+        sidebarSizeBtn: const Color(0xFF2B262B),
+        username: const Color(0xFF130E14),
+        projectTextIcon:const Color(0xFF130E14).withValues(alpha: 0.5),
       );
 }

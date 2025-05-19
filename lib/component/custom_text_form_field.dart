@@ -30,6 +30,7 @@ class CustomTextFormField extends StatefulWidget {
     this.autofocus = false,
     this.enabled = true,
     this.readOnly = false,
+    this.readOnlyWithEnabledStyle = false,
     this.textCapitalization = TextCapitalization.none,
     this.border,
     this.enabledBorder,
@@ -48,6 +49,7 @@ class CustomTextFormField extends StatefulWidget {
   final bool obscureText;
   final bool enabled;
   final bool readOnly;
+  final bool readOnlyWithEnabledStyle;
   final bool autofocus;
   final Widget? suffixIcon;
   final Widget? prefixIcon;
@@ -104,7 +106,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           autofillHints: widget.autofillHints,
           obscureText: widget.obscureText,
           enabled: widget.enabled,
-          readOnly: widget.readOnly,
+          readOnly: widget.readOnly || widget.readOnlyWithEnabledStyle,
           cursorErrorColor: NovodomTheme(context).colorTheme.tomatoColor,
           cursorWidth: 1,
           maxLines: widget.maxLines,

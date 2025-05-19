@@ -79,7 +79,7 @@ class StepTab extends StatelessWidget {
       child: Stack(
         children: [
           AnimatedContainer(
-            duration: const Duration(milliseconds: 200),
+            duration: NovodomTheme(context).durationTheme.animationDuration,
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(22),
@@ -116,14 +116,15 @@ class StepTab extends StatelessWidget {
             right: 0,
             top: 0,
             child: AnimatedScale(
-              duration: const Duration(milliseconds: 200),
+              duration: NovodomTheme(context).durationTheme.animationDuration,
               scale: type == StepTabState.passed || type == StepTabState.updates
                   ? 1
                   : 0,
               child: SvgPicture.asset(
                 type == StepTabState.updates
-                    ? NovodomTheme(context).assetsTheme.updated
-                    : NovodomTheme(context).assetsTheme.passed,
+                    ? NovodomTheme(context).assetsTheme.updates
+                    : NovodomTheme(context).assetsTheme.icons16.passed,
+                height: 14,
               ),
             ),
           ),

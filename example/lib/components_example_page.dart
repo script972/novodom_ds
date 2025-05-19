@@ -13,18 +13,47 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
   bool _radioValue = false;
   bool _changeTabState = false;
   bool _radioTabSelected = false;
+  bool _squareThemedButtonActive = false;
   int _sidebarTabSelectedIndex = -1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
+      body: SidebarLayout(
+        username: 'Alice Cooper',
+        selectedProject: '232',
+        userAvatar: null,
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             spacing: 20,
             children: [
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                '------------------------ CustomSidebar ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              // CustomSidebar(),
+              const Text(
+                '------------------------ SquareThemedButton ------------------------',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              SquareThemedButton(
+                  active: _squareThemedButtonActive,
+                  showIndicator: true,
+                  duotoneIcon:
+                      NovodomTheme(context).assetsTheme.duotoneIcons.bed,
+                  onTap: () {
+                    setState(() {
+                      _squareThemedButtonActive = !_squareThemedButtonActive;
+                    });
+                  }),
               const Text(
                 '------------------------ Logo ------------------------',
                 style: TextStyle(
@@ -46,7 +75,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                     _sidebarTabSelectedIndex = 0;
                   });
                 },
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
               ),
               SidebarTab(
                 text: 'Built-in',
@@ -56,7 +85,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                     _sidebarTabSelectedIndex = 1;
                   });
                 },
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
               ),
               SidebarTab(
                 text: 'Built-in',
@@ -67,7 +96,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                     _sidebarTabSelectedIndex = 0;
                   });
                 },
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
               ),
               const Text(
                 '------------------------ RadioButtonTab ------------------------',
@@ -102,13 +131,13 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 type: StepTabState.passed,
                 onTap: () {},
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 type:
                     _changeTabState ? StepTabState.passed : StepTabState.active,
                 onTap: () {
@@ -119,18 +148,18 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 type: StepTabState.disabled,
                 onTap: () {},
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 onTap: () {},
               ),
               StepTab(
                 text: 'Tab',
-                duotoneIcon: 'icons/bed',
+                duotoneIcon: NovodomTheme(context).assetsTheme.duotoneIcons.bed,
                 type: StepTabState.updates,
                 onTap: () {},
               ),
@@ -289,7 +318,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     text: 'Sign In',
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
                     ),
@@ -297,7 +329,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     disabled: true,
                     text: 'Sign In',
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     onTap: () async {},
                   ),
                 ],
@@ -308,7 +343,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
@@ -316,7 +354,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     disabled: true,
                     text: 'Sign In',
                     onTap: () async {},
@@ -329,7 +370,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
@@ -337,7 +381,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     disabled: true,
                     text: 'Sign In',
                     onTap: () async {},
@@ -350,7 +397,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
@@ -359,7 +409,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
                     disabled: true,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     onTap: () async {},
                   ),
@@ -460,7 +513,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     text: 'Sign In',
                     size: ButtonSize.m,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     onTap: () async => Future.delayed(
                       const Duration(seconds: 1),
                     ),
@@ -469,7 +525,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                     disabled: true,
                     text: 'Sign In',
                     size: ButtonSize.m,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     onTap: () async {},
                   ),
                 ],
@@ -480,7 +539,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async => Future.delayed(
@@ -489,7 +551,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.secondary,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     disabled: true,
                     text: 'Sign In',
                     size: ButtonSize.m,
@@ -503,7 +568,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async => Future.delayed(
@@ -512,7 +580,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   ),
                   CustomButton(
                     type: ButtonType.tertiaryBlack,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     disabled: true,
                     text: 'Sign In',
                     size: ButtonSize.m,
@@ -526,7 +597,10 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                 children: [
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async => Future.delayed(
@@ -536,12 +610,18 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
                   CustomButton(
                     type: ButtonType.tertiaryWhite,
                     disabled: true,
-                    duotoneIcon: 'icons/plus-circle',
+                    duotoneIcon: NovodomTheme(context)
+                        .assetsTheme
+                        .duotoneIcons
+                        .plusCircle,
                     text: 'Sign In',
                     size: ButtonSize.m,
                     onTap: () async {},
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 20,
               ),
             ],
           ),

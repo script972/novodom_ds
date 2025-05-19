@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class RedecorColorTheme {
@@ -35,6 +36,15 @@ class RedecorColorTheme {
   Color tabIconBlackDisabled;
   Color tabIconBlueDisabled;
   Color logo;
+  Color btnTetriaryBgDefault;
+  Color btnTetriaryBgHover;
+  Color btnTetriaryBgActive;
+  Color btnTetriaryIconBlue;
+  Color btnTetriaryIconBlack;
+  Color sidebarSizeBtn;
+  Color sidebarSizeBtnIcon;
+  Color username;
+  Color projectTextIcon;
 
   RedecorColorTheme({
     required this.blackColor,
@@ -71,5 +81,14 @@ class RedecorColorTheme {
     required this.tabIconBlackDisabled,
     required this.tabIconBlueDisabled,
     required this.logo,
+    required this.btnTetriaryBgDefault,
+    required this.btnTetriaryBgHover,
+    required this.btnTetriaryBgActive,
+    required this.btnTetriaryIconBlue,
+    required this.btnTetriaryIconBlack,
+    required this.sidebarSizeBtn,
+    required this.sidebarSizeBtnIcon,
+    required this.username,
+    required this.projectTextIcon,
   });
 }
