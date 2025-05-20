@@ -14,14 +14,14 @@ class StepTab extends StatelessWidget {
   const StepTab({
     super.key,
     required this.text,
-    required this.duotoneIcon,
+    this.duotoneIcon,
     this.type = StepTabState.defaultt,
     this.changeIconOrder = false,
     required this.onTap,
   });
 
   final String text;
-  final String duotoneIcon;
+  final String? duotoneIcon;
   final StepTabState type;
   final bool changeIconOrder;
   final Function() onTap;
@@ -94,8 +94,9 @@ class StepTab extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 spacing: 8,
                 children: [
+                  if (duotoneIcon != null)
                   DuotoneIcon(
-                    duotoneIcon: duotoneIcon,
+                    duotoneIcon: duotoneIcon!,
                     changeOrder: changeIconOrder,
                     iconBlackColor: _duotoneBlackColor(context),
                     iconBlueColor: _duotoneBlueColor(context),
