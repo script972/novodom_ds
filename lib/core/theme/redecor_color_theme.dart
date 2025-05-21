@@ -1,11 +1,94 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
 class RedecorColorTheme {
-  RedecorColorTheme({
-    required this.grayColor,
-    required this.gray1Color,
-  });
+  Color blackColor;
+  Color black5Color;
+  Color black10Color;
+  Color black20Color;
+  Color black40Color;
+  Color black50Color;
+  Color black60Color;
+  Color black70Color;
+  Color whiteColor;
+  Color white10Color;
+  Color white15Color;
+  Color white20Color;
+  Color white35Color;
+  Color white50Color;
+  Color tomatoColor;
+  Color tomato50Color;
+  Color orchidColor;
+  Color violetColor;
+  Color smokeColor;
+  Color tabTextDefault;
+  Color tabTextDisabled;
+  Color tabTextHover;
+  Color tabTextActive;
+  Color tabBgHover;
+  Color tabBgActive;
+  Color tabIconBlackActive;
+  Color tabIconBlueActive;
+  Color tabIconBlackHovered;
+  Color tabIconBlueHovered;
+  Color tabIconBlackDefault;
+  Color tabIconBlueDefault;
+  Color tabIconBlackDisabled;
+  Color tabIconBlueDisabled;
+  Color logo;
+  Color btnTetriaryBgDefault;
+  Color btnTetriaryBgHover;
+  Color btnTetriaryBgActive;
+  Color btnTetriaryIconBlue;
+  Color btnTetriaryIconBlack;
+  Color sidebarSizeBtn;
+  Color sidebarSizeBtnIcon;
+  Color username;
+  Color projectTextIcon;
 
-  Color grayColor;
-  Color gray1Color;
+  RedecorColorTheme({
+    required this.blackColor,
+    required this.black5Color,
+    required this.black10Color,
+    required this.black20Color,
+    required this.black40Color,
+    required this.black50Color,
+    required this.black60Color,
+    required this.black70Color,
+    required this.whiteColor,
+    required this.white10Color,
+    required this.white15Color,
+    required this.white20Color,
+    required this.white35Color,
+    required this.white50Color,
+    required this.tomatoColor,
+    required this.tomato50Color,
+    required this.orchidColor,
+    required this.violetColor,
+    required this.smokeColor,
+    required this.tabTextDefault,
+    required this.tabTextDisabled,
+    required this.tabTextHover,
+    required this.tabTextActive,
+    required this.tabBgHover,
+    required this.tabBgActive,
+    required this.tabIconBlackActive,
+    required this.tabIconBlueActive,
+    required this.tabIconBlackHovered,
+    required this.tabIconBlueHovered,
+    required this.tabIconBlackDefault,
+    required this.tabIconBlueDefault,
+    required this.tabIconBlackDisabled,
+    required this.tabIconBlueDisabled,
+    required this.logo,
+    required this.btnTetriaryBgDefault,
+    required this.btnTetriaryBgHover,
+    required this.btnTetriaryBgActive,
+    required this.btnTetriaryIconBlue,
+    required this.btnTetriaryIconBlack,
+    required this.sidebarSizeBtn,
+    required this.sidebarSizeBtnIcon,
+    required this.username,
+    required this.projectTextIcon,
+  });
 }
