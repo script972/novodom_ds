@@ -233,6 +233,7 @@ class _SidebarLayoutState extends State<SidebarLayout> {
               onProjectTap: () {
                 debugPrint('onProjectTap');
               },
+              onUserTap: () {},
             ),
             Expanded(
               child: Container(
