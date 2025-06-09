@@ -1,5 +1,6 @@
-import 'package:example/base_list.dart';
+import 'package:example/components_example_page.dart';
 import 'package:flutter/material.dart';
+import 'package:novodom_ds/core/theme_container.dart';
 import 'package:novodom_ds/index.dart';
 
 void main() {
@@ -13,18 +14,16 @@ class RedecorDemoDs extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueProvider<ThemeMode, ThemeMode>(
         shouldNotify: (newMode, oldMode) => newMode.index != oldMode.index,
-    future: getThemeMode(context),
-    initValue: ThemeMode.system,
-    builder: (_, themeMode) {
+        future: getThemeMode(context),
+        initValue: ThemeMode.system,
+        builder: (_, themeMode) {
           return MaterialApp(
             title: 'Redecor. Demo DS',
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
-            home: const BaseListScreen(),
+            theme: ThemeFactory.lightTheme.themeData,
+            darkTheme: ThemeFactory.darkTheme.themeData,
+            home: const ComponentsExamplePage(),
           );
-    });
+        });
   }
 
   Future<ThemeMode> getThemeMode(BuildContext buildContext) async {
@@ -33,4 +32,3 @@ class RedecorDemoDs extends StatelessWidget {
     return ThemeMode.values[/*await themeModeValue ??*/ 0];
   }
 }
-
