@@ -14,6 +14,7 @@ class CustomSidebar extends StatelessWidget {
     required this.onMoreTap,
     required this.tabs,
     required this.rowButtons,
+    required this.onUserTap,
   });
 
   final bool sidebarOpened;
@@ -23,6 +24,7 @@ class CustomSidebar extends StatelessWidget {
   final Function() onProjectTap;
   final Future Function() onPlusTap;
   final Future Function() onMoreTap;
+  final Function() onUserTap;
   final List<SidebarTab> tabs;
   final List<SquareThemedButton> rowButtons;
 
@@ -58,8 +60,11 @@ class CustomSidebar extends StatelessWidget {
                   height: 50,
                   child: Row(
                     children: [
-                      UserAvatar(
-                        avatarUrl: userAvatar,
+                      InkWell(
+                        onTap: onUserTap,
+                        child: UserAvatar(
+                          avatarUrl: userAvatar,
+                        ),
                       ),
                       if (sidebarOpened) ...[
                         const SizedBox(
@@ -70,16 +75,19 @@ class CustomSidebar extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                username,
-                                style: NovodomTheme(context)
-                                    .textTheme
-                                    .p1Semibold
-                                    .copyWith(
-                                      color: NovodomTheme(context)
-                                          .colorTheme
-                                          .username,
-                                    ),
+                              InkWell(
+                                onTap: onUserTap,
+                                child: Text(
+                                  username,
+                                  style: NovodomTheme(context)
+                                      .textTheme
+                                      .p1Semibold
+                                      .copyWith(
+                                        color: NovodomTheme(context)
+                                            .colorTheme
+                                            .username,
+                                      ),
+                                ),
                               ),
                               InkWell(
                                 onTap: onProjectTap,
