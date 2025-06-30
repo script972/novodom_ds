@@ -137,6 +137,8 @@ abstract class NovodomCoreTheme implements NovodomTheme {
           userHandUp:
               'packages/novodom_ds/assets/icons/duotoneIcons/user-hand-up',
           walls: 'packages/novodom_ds/assets/icons/duotoneIcons/walls',
+          document_add:
+              'packages/novodom_ds/assets/icons/duotoneIcons/document_add',
         ),
       );
 
