@@ -131,6 +131,7 @@ class DuotoneIcons {
   final String userCircle;
   final String userHandUp;
   final String walls;
+  final String document_add;
 
   const DuotoneIcons({
     required this.accent,
@@ -190,6 +191,6 @@ class DuotoneIcons {
     required this.userCircle,
     required this.userHandUp,
     required this.walls,
-    required document_add,
+    required this.document_add,
   });
 }
