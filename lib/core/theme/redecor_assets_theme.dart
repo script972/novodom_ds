@@ -190,5 +190,6 @@ class DuotoneIcons {
     required this.userCircle,
     required this.userHandUp,
     required this.walls,
+    required document_add,
   });
 }
