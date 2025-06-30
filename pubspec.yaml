@@ -86,6 +86,7 @@ flutter:
     - assets/icons/duotoneIcons/user-circle/
     - assets/icons/duotoneIcons/user-hand-up/
     - assets/icons/duotoneIcons/walls/
+    - assets/icons/duotoneIcons/document_add/
 
   fonts:
     - family: WixMadeforText
