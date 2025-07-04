@@ -8,9 +8,9 @@ class CustomSidebar extends StatelessWidget {
     required this.sidebarOpened,
     required this.username,
     required this.userAvatar,
-    required this.selectedProject,
+    required this.userEmail,
     required this.onProjectTap,
-    required this.onPlusTap,
+    required this.onProjectsTap,
     required this.onMoreTap,
     required this.tabs,
     required this.rowButtons,
@@ -20,9 +20,9 @@ class CustomSidebar extends StatelessWidget {
   final bool sidebarOpened;
   final String username;
   final String? userAvatar;
-  final String? selectedProject;
+  final String? userEmail;
   final Function() onProjectTap;
-  final Future Function() onPlusTap;
+  final Future Function() onProjectsTap;
   final Future Function() onMoreTap;
   final Function() onUserTap;
   final List<SidebarTab> tabs;
@@ -73,7 +73,7 @@ class CustomSidebar extends StatelessWidget {
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               InkWell(
                                 onTap: onUserTap,
@@ -89,13 +89,16 @@ class CustomSidebar extends StatelessWidget {
                                       ),
                                 ),
                               ),
+                              const SizedBox(
+                                height: 12,
+                              ),
                               InkWell(
                                 onTap: onProjectTap,
                                 child: Row(
                                   children: [
                                     Flexible(
                                       child: Text(
-                                        selectedProject ?? '',
+                                        userEmail ?? '',
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: NovodomTheme(context)
@@ -135,8 +138,8 @@ class CustomSidebar extends StatelessWidget {
                           duotoneIcon: NovodomTheme(context)
                               .assetsTheme
                               .duotoneIcons
-                              .plusCircle,
-                          onTap: onPlusTap,
+                              .logOut,
+                          onTap: onProjectsTap,
                         ),
                       ],
                     ],

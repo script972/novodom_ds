@@ -51,7 +51,7 @@ class _SidebarLayoutState extends State<SidebarLayout> {
               sidebarOpened: _sidebarOpened,
               userAvatar: widget.userAvatar,
               username: widget.username,
-              selectedProject: widget.selectedProject,
+              userEmail: widget.selectedProject,
               onMoreTap: () async {
                 setState(() {
                   _sidebarOpened = !_sidebarOpened;
@@ -227,7 +227,7 @@ class _SidebarLayoutState extends State<SidebarLayout> {
                   },
                 ),
               ],
-              onPlusTap: () async {
+              onProjectsTap: () async {
                 debugPrint('onPlusTap');
               },
               onProjectTap: () {
