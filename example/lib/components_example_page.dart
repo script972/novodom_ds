@@ -21,7 +21,7 @@ class _ComponentsExamplePageState extends State<ComponentsExamplePage> {
     return Scaffold(
       body: SidebarLayout(
         username: 'Alice Cooper',
-        selectedProject: '232',
+        selectedProject: 'johndoe@example.com',
         userAvatar: null,
         child: SingleChildScrollView(
           child: Column(

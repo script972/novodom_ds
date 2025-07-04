@@ -11,11 +11,14 @@ class UserAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = NovodomTheme(context);
+
     return CircleAvatar(
       radius: 22,
-      backgroundImage:
-          Image.asset(NovodomTheme(context).assetsTheme.userPic).image,
-      foregroundImage: Image.network(avatarUrl ?? '').image,
+      backgroundImage: Image.asset(theme.assetsTheme.userPic).image,
+      foregroundImage: (avatarUrl != null && avatarUrl!.trim().isNotEmpty)
+          ? NetworkImage(avatarUrl!)
+          : null,
     );
   }
 }

@@ -90,7 +90,7 @@ class CustomSidebar extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(
-                                height: 12,
+                                height: 8,
                               ),
                               InkWell(
                                 onTap: onProjectTap,
@@ -109,18 +109,6 @@ class CustomSidebar extends StatelessWidget {
                                                   .colorTheme
                                                   .projectTextIcon,
                                             ),
-                                      ),
-                                    ),
-                                    SvgPicture.asset(
-                                      NovodomTheme(context)
-                                          .assetsTheme
-                                          .icons24
-                                          .arrowRight,
-                                      colorFilter: ColorFilter.mode(
-                                        NovodomTheme(context)
-                                            .colorTheme
-                                            .projectTextIcon,
-                                        BlendMode.srcIn,
                                       ),
                                     ),
                                   ],
