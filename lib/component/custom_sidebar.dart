@@ -79,6 +79,8 @@ class CustomSidebar extends StatelessWidget {
                                 onTap: onUserTap,
                                 child: Text(
                                   username,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: NovodomTheme(context)
                                       .textTheme
                                       .p1Semibold
