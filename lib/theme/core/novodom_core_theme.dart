@@ -148,7 +148,7 @@ abstract class NovodomCoreTheme implements NovodomTheme {
               'packages/novodom_ds/assets/icons/duotoneIcons/mood-board/',
           myOrder: 'packages/novodom_ds/assets/icons/duotoneIcons/my-order/',
           permitDocument:
-              'packages/novodom_ds/assets/icons/duotoneIcons/permit-docuemnt/',
+              'packages/novodom_ds/assets/icons/duotoneIcons/permit-documents/',
           propertyDocument:
               'packages/novodom_ds/assets/icons/duotoneIcons/property-document/',
           questionAdd:
