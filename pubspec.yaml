@@ -87,6 +87,15 @@ flutter:
     - assets/icons/duotoneIcons/user-hand-up/
     - assets/icons/duotoneIcons/walls/
     - assets/icons/duotoneIcons/document_add/
+    - assets/icons/duotoneIcons/floor-plan/
+    - assets/icons/duotoneIcons/idesign/
+    - assets/icons/duotoneIcons/measurements/
+    - assets/icons/duotoneIcons/mood-board/
+    - assets/icons/duotoneIcons/my-order/
+    - assets/icons/duotoneIcons/permit-docuemnt/
+    - assets/icons/duotoneIcons/property-document/
+    - assets/icons/duotoneIcons/quiestion-add/
+    - assets/icons/duotoneIcons/we-design/
 
   fonts:
     - family: WixMadeforText

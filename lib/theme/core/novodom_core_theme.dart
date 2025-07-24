@@ -139,6 +139,24 @@ abstract class NovodomCoreTheme implements NovodomTheme {
           walls: 'packages/novodom_ds/assets/icons/duotoneIcons/walls',
           document_add:
               'packages/novodom_ds/assets/icons/duotoneIcons/document_add',
+          floorPlan:
+              'packages/novodom_ds/assets/icons/duotoneIcons/floor-plan/floor_plan',
+          idesign:
+              'packages/novodom_ds/assets/icons/duotoneIcons/idesign/idesign',
+          measurements:
+              'packages/novodom_ds/assets/icons/duotoneIcons/measurements/measurements',
+          moodBoard:
+              'packages/novodom_ds/assets/icons/duotoneIcons/mood-board/mood_board',
+          myOrder:
+              'packages/novodom_ds/assets/icons/duotoneIcons/my-order/my_order',
+          permitDocument:
+              'packages/novodom_ds/assets/icons/duotoneIcons/permit-docuemnt/permit_document',
+          propertyDocument:
+              'packages/novodom_ds/assets/icons/duotoneIcons/property-document/property_document',
+          questionAdd:
+              'packages/novodom_ds/assets/icons/duotoneIcons/quiestion-add/question_add',
+          weDesign:
+              'packages/novodom_ds/assets/icons/duotoneIcons/we-design/we_design',
         ),
       );
 

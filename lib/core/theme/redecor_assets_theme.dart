@@ -132,6 +132,15 @@ class DuotoneIcons {
   final String userHandUp;
   final String walls;
   final String document_add;
+  final String floorPlan;
+  final String idesign;
+  final String measurements;
+  final String moodBoard;
+  final String myOrder;
+  final String permitDocument;
+  final String propertyDocument;
+  final String questionAdd;
+  final String weDesign;
 
   const DuotoneIcons({
     required this.accent,
@@ -192,5 +201,14 @@ class DuotoneIcons {
     required this.userHandUp,
     required this.walls,
     required this.document_add,
+    required this.floorPlan,
+    required this.idesign,
+    required this.measurements,
+    required this.moodBoard,
+    required this.myOrder,
+    required this.permitDocument,
+    required this.propertyDocument,
+    required this.questionAdd,
+    required this.weDesign,
   });
 }
