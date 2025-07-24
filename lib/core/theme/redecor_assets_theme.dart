@@ -25,8 +25,10 @@ class Icons16 {
   final String noPassed;
   final String passed;
   final String passed2;
+  final String passed3;
   final String tickCircle;
   final String tip;
+  final String tip2;
 
   Icons16({
     required this.add,
@@ -36,6 +38,8 @@ class Icons16 {
     required this.passed2,
     required this.tickCircle,
     required this.tip,
+    required this.passed3,
+    required this.tip2,
   });
 }
 

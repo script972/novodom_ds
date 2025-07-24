@@ -45,6 +45,8 @@ abstract class NovodomCoreTheme implements NovodomTheme {
           tickCircle:
               'packages/novodom_ds/assets/icons/icons16/tick-circle.svg',
           tip: 'packages/novodom_ds/assets/icons/icons16/Tip.svg',
+          passed3: 'packages/novodom_ds/assets/icons/icons16/Passed3.svg',
+          tip2: 'packages/novodom_ds/assets/icons/icons16/Tip2.svg',
         ),
         icons24: Icons24(
           arrowDown: 'packages/novodom_ds/assets/icons/icons24/Arrow-Down.svg',
